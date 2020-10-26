@@ -1,4 +1,4 @@
-const Pool = require('pg').Pool
+const Pool = require('pg').Pool;
 const pool = new Pool({
  host: 'ec2-54-246-87-132.eu-west-1.compute.amazonaws.com',
   database: 'd683ihok8nl14i',
@@ -8,7 +8,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 }) 
 const getUsers = (request, response) => {
-  pool.query('SELECT * FROM table2', (error, results) => {
+  pool.query('SELECT * FROM table_sample', (error, results) => {
     if (error) {
       throw error
     }
@@ -19,7 +19,7 @@ const getUsers = (request, response) => {
 const getUserById = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('SELECT * FROM table2 WHERE id = $1', [id], (error, results) => {
+  pool.query('SELECT * FROM table_sample WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
