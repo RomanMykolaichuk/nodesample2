@@ -6,7 +6,7 @@ const pool = new Pool({
   password: '2ec9d7ed7b275b068d88968f2f7ea4bbeeff43fffc35251717823b50b5828f16',
   port: 5432, 
   ssl: { rejectUnauthorized: false }
-})
+}) 
 const getUsers = (request, response) => {
   pool.query('SELECT * FROM table2', (error, results) => {
     if (error) {
